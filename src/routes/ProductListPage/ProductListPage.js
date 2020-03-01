@@ -32,6 +32,12 @@ export default class ProductListPage extends Component {
 			.catch(this.context.setError);
     }
 
+    filterProducts = () => {
+        const { productList = [] } = this.context.productList
+        return (
+            productList.filter(product => product.product_type === this.state.type)
+        )
+    }
     
     renderProducts() {
         const productList = this.state.searchResults.length > 0
@@ -53,7 +59,7 @@ export default class ProductListPage extends Component {
             <Section list className='ProductListPage'>
                 {error
                     ? <p className='red'>There was an error, try again</p>
-                    : <div><Search productList={this.context.productList} types={this.state.types} saveSearchResults={this.setSearchResults}/> {this.renderProducts()}</div>
+                    : <div><Search type={this.state.type} setType={this.setType} types={this.state.types} saveSearchResults={this.setSearchResults}/> {this.renderProducts()}</div>
                 }
             </Section>
         )

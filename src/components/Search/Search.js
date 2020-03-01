@@ -9,23 +9,12 @@ export default class Search extends Component {
         super();
         this.state = {
             searchTerm: "",
-            type: ''
 		};
     }
     setSearchTerm = term => {
         this.setState({
             searchTerm: term,
         })
-    }
-    setTypeOption = type => {
-        this.setState({
-            type: type
-        })
-    }
-    filterProducts = () => {
-        return (
-            this.props.productList.filter(product => product.product_type === this.state.type)
-        )
     }
 
     renderTypeOptions() {
@@ -38,14 +27,14 @@ export default class Search extends Component {
 					id="type-none"
 					name="type"
 					value=""
-					onChange={e => this.setTypeOption(e.target.value)}
+					onChange={e => this.props.setType(e.target.value)}
 				/>
 				<label htmlFor="type-none">None</label>
 				{types.map(type => (
 					<TypeSearch
 						key={type.product_type}
 						type={type.product_type}
-						setType={this.setTypeOption}
+						setType={this.props.setType}
 					/>
 				))}
                 
@@ -57,10 +46,11 @@ export default class Search extends Component {
         e.preventDefault();
         const params = [];
         let baseUrl = `${config.API_ENDPOINT}/products/search`
-        if (this.state.searchTerm === '' && this.state.type === '') {
+        if (this.state.searchTerm === '' && this.props.type === '') {
             baseUrl = `${config.API_ENDPOINT}/products`
         } else {
             params.push(`name=${this.state.searchTerm}`);
+            params.push(`type=${this.props.type}`)
         }
         
         const query = params.join("&");
