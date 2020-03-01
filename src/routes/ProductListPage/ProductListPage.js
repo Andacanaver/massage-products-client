@@ -16,6 +16,7 @@ export default class ProductListPage extends Component {
         this.setState({
             type: type
         })
+        
     }
     setSearchResults = results => {
     this.setState({
@@ -37,6 +38,20 @@ export default class ProductListPage extends Component {
         return (
             productList.filter(product => product.product_type === this.state.type)
         )
+    }
+
+    renderProductsSearch() {
+        
+        const searchResults = this.state.searchResults
+        if(searchResults.length === 0) {
+            return (
+                <div>There were no results</div>
+            )
+        } else {
+            return searchResults.map(product => (
+				<ProductListItem key={product.id} product={product} />
+			));
+        }
     }
     
     renderProducts() {
