@@ -1,0 +1,16 @@
+a {
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+}
+.Header {
+    text-align: center;
+}
+.Header__logged-in {
+    display: flex;
+    justify-content: center;
+}
+.Header__logged-in a {
+    padding: 0 5px;
+}

@@ -1,0 +1,26 @@
+.SearchSection {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.SearchSection Form input {
+    width: 30%;
+    margin: 0 10px;
+    height: 24px;
+}
+.SearchSection form button{
+    width: 10%;
+    height: 24px;
+}
+.SearchSection Form .type_options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+.SearchSection Form .type_options input {
+    width: 15px;
+}
+.SearchSection Form .type_options label {
+    padding-bottom: 5px;
+}
