@@ -18,9 +18,11 @@ export default class ProductListPage extends Component {
         })
         
     }
+    
+    
     setSearchResults = results => {
     this.setState({
-        searchResults: results
+        searchResults: results,
         })
     }
     componentDidMount() {
@@ -33,25 +35,8 @@ export default class ProductListPage extends Component {
 			.catch(this.context.setError);
     }
 
-    filterProducts = () => {
-        const { productList = [] } = this.context.productList
-        return (
-            productList.filter(product => product.product_type === this.state.type)
-        )
-    }
-
-    renderProductsSearch() {
-        
-        const searchResults = this.state.searchResults
-        if(searchResults.length === 0) {
-            return (
-                <div>There were no results</div>
-            )
-        } else {
-            return searchResults.map(product => (
-				<ProductListItem key={product.id} product={product} />
-			));
-        }
+    filterProducts = (productList = [], type) => {
+        productList.filter(product => product.product_type === type)
     }
     
     renderProducts() {
@@ -65,8 +50,6 @@ export default class ProductListPage extends Component {
             />    
         )
     }
-
-    
 
     render() {
         const { error } = this.context

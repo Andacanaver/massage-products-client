@@ -8,7 +8,7 @@ export default class Search extends Component {
     constructor() {
         super();
         this.state = {
-            searchTerm: "",
+            searchTerm: ""
 		};
     }
     setSearchTerm = term => {
@@ -45,14 +45,14 @@ export default class Search extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const params = [];
-        let baseUrl = `${config.API_ENDPOINT}/products/search`
-        if (this.state.searchTerm === '' && this.props.type === '') {
-            baseUrl = `${config.API_ENDPOINT}/products`
-        } else {
-            params.push(`name=${this.state.searchTerm}`);
-            params.push(`type=${this.props.type}`)
-        }
+        let baseUrl = `${config.API_ENDPOINT}/products`
         
+        if(this.state.searchTerm) {
+            params.push(`name=${this.state.searchTerm}`);
+        }
+        if(this.props.type){
+            params.push(`type=${this.props.type}`);
+        }
         const query = params.join("&");
         const url = `${baseUrl}?${query}`
         fetch(url,{
@@ -63,12 +63,16 @@ export default class Search extends Component {
         })
         .then(res => {
             if(!res.ok) {
-                throw new Error(res.statusText);
+                res.json().then(responseJson =>
+                    this.props.setError({error: responseJson.error})
+					
+				);
             }
+            
             return res.json();
         })
         .then(data => {
-            this.props.saveSearchResults(data)
+            this.props.saveSearchResults(data);
         })
         .catch(error => {
             console.error(error)
@@ -76,10 +80,14 @@ export default class Search extends Component {
     }
     
     render() {
+        const { error } = this.state
         return (
             <>
 			<Section className="SearchSection">
 				<form className="search__form" onSubmit={e => this.handleSubmit(e)}>
+                    <div role="alert">
+					    {error && <p className="red">{error}</p>}
+                    </div>
 					<label htmlFor="search">Search: </label>
 					<input type="text" id="search" name="search" onChange={e => this.setSearchTerm(e.target.value)}/>
 					<button type="submit">Search</button>
