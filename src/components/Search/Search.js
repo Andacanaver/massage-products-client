@@ -68,11 +68,9 @@ export default class Search extends Component {
 					
 				);
             }
-            console.log('helooooo')
             return res.json();
         })
         .then(data => {
-            console.log(data)
             this.props.saveSearchResults(data);
             
         })
