@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Hyph } from "../../Utils/Utils";
 import TokenService from "../../services/token-service";
 import "./Header.css";
-import config from '../../config'
 import UserService from '../../services/user-api-service'
 
 export default class Header extends Component {

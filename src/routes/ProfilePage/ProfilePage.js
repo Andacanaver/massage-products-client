@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { Section } from '../../Utils/Utils'
 //import ProfileArea from '../../components/ProfileArea'
 import UserService from '../../services/user-api-service'

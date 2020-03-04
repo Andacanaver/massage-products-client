@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NiceDate, Hyph } from "../../Utils/Utils";
-import StyleIcon from "../StyleIcon/StyleIcon";
+import { Hyph } from "../../Utils/Utils";
 
 export default class ProductListItem extends Component {
 	render() {
@@ -23,7 +21,7 @@ export default class ProductListItem extends Component {
 						src={product.product_image}
 						alt={`Product_${product.product_id}`}
 					/>
-					<Hyph />
+					<br />
 					{product.price}
 					<Hyph />
 					{product.product_description}

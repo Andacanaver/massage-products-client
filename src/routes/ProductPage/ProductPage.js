@@ -78,6 +78,7 @@ export default class ProductPage extends Component {
 						</option>
 						{wishlists.map(wishlist => (
 							<option
+                                key={wishlist.id}
 								name={wishlist.wishlist_name}
 								value={wishlist.id}>
 								{wishlist.wishlist_name}
