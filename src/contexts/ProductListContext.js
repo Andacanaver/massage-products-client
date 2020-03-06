@@ -60,7 +60,7 @@ export class ProductListProvider extends Component {
             wishlist_name: wishlistName
         })
     }
-    clearWishlistName = wishlistName => {
+    clearWishlistName = () => {
         this.setState({
             wishlist_name: ''
         })

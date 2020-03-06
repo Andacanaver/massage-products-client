@@ -40,7 +40,7 @@ export default class Search extends Component {
         const params = [];
         let baseUrl = `${config.API_ENDPOINT}/products`
         
-        if(this.state.searchTerm) {
+        if(this.context.searchTerm) {
             params.push(`name=${this.context.searchTerm}`);
         }
         if(this.props.type){
