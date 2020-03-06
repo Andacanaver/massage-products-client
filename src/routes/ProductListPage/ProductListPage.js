@@ -6,27 +6,12 @@ import ProductListItem from "../../components/ProductListItem/ProductListItem";
 import Search from "../../components/Search/Search";
 
 export default class ProductListPage extends Component {
-	static contextType = ProductListContext;
-	state = {
-		searchResults: null,
-		types: [],
-		type: ""
-	};
-	setType = type => {
-		this.setState({
-			type: type
-		});
-	};
-
-	setSearchResults = results => {
-		this.setState({
-			searchResults: results
-		});
-	};
+    static contextType = ProductListContext;
+    
 	componentDidMount() {
 		this.context.clearError();
 		ProductApiService.getType()
-			.then(data => this.setState({ types: data }))
+			.then(data => this.context.setTypes(data))
 			.catch(this.context.setError);
 		ProductApiService.getProducts()
 			.then(this.context.setProductList)
@@ -35,7 +20,7 @@ export default class ProductListPage extends Component {
 
 	renderProducts() {
 		let productList;
-		const searchResults = this.state.searchResults;
+		const searchResults = this.context.searchResults;
 		if (searchResults === null) {
 			productList = this.context.productList;
 			return productList.map(product => (
@@ -68,10 +53,10 @@ export default class ProductListPage extends Component {
 				) : (
 					<div>
 						<Search
-							type={this.state.type}
-							setType={this.setType}
-							types={this.state.types}
-							saveSearchResults={this.setSearchResults}
+							type={this.context.type}
+							setType={this.context.setType}
+							types={this.context.types}
+							saveSearchResults={this.context.setSearchResults}
 						/>{" "}
 						{this.renderProducts()}
 					</div>

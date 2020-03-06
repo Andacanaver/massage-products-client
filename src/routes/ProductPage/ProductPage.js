@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 import './ProductPage.css'
 import TokenService from '../../services/token-service'
 import WishlistService from '../../services/wishlist-api-service'
-
 export default class ProductPage extends Component {
     static defaultProps = {
         match: { params: {} }
@@ -17,7 +16,6 @@ export default class ProductPage extends Component {
     static contextType = ProductListContext
 
     state = {
-        wishlistId: '',
         stateError: null
     }
     
@@ -33,18 +31,13 @@ export default class ProductPage extends Component {
         
     }
     
-    changeWishlist = (e) => {
-        this.setState({
-            wishlistId: e.target.value
-        })
-    }
     
     handleSubmit = e => {
         e.preventDefault()
         const { productId } = this.props.match.params
         WishlistService.postWishlistProduct({
             product_id: productId,
-            wishlist_id: this.state.wishlistId
+            wishlist_id: this.context.wishlistId
         })
             .then(res => {
                 if (!res.ok) {
@@ -72,7 +65,7 @@ export default class ProductPage extends Component {
 				</div>
 				<label htmlFor="wishlist-options">
                     Add to Wishlist: 
-					<select onChange={this.changeWishlist} id="wishlists">
+					<select onChange={this.context.setWishlistId} id="wishlists">
 						<option name="none" value="">
 							None
 						</option>

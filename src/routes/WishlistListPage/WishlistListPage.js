@@ -13,9 +13,6 @@ export default class WishlistPage extends Component {
             push: () => {}
         }
     }
-    state = {
-        wishlistBoolean: false
-    }
 
     componentDidMount() {   
         this.context.clearError();     

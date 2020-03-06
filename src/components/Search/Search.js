@@ -7,20 +7,9 @@ import ProductListContext from '../../contexts/ProductListContext'
 
 export default class Search extends Component {
     static contextType = ProductListContext
-    constructor() {
-        super();
-        this.state = {
-            //todo can get rid of this
-            searchTerm: ""
-		};
+    state = {
+        error: null
     }
-    //todo can get rid of this
-    setSearchTerm = term => {
-        this.setState({
-            searchTerm: term,
-        })
-    }
-
     renderTypeOptions() {
         const types = this.props.types
         return (
