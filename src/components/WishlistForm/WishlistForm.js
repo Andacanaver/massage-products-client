@@ -13,15 +13,14 @@ export default class WishlistForm extends Component {
     }
     state = {
         error: null,
-        wishlist_name: ''
     }
     handleSubmit = (e) => {
         e.preventDefault()
         
         this.setState({ error: null })
-        WishlistService.postWishlist({
-			wishlist_name: this.state.wishlist_name
-		})
+        WishlistService.postWishlist(
+			this.context.wishlist_name()
+		)
 			.then(response => {
 				if (!response.ok) {
 					response
@@ -33,17 +32,13 @@ export default class WishlistForm extends Component {
 					response
 						.json()
 						.then(res => {
-                            this.context.addWishlist(res);
-                            this.setState({ wishlist_name: "" });
+                            this.context.addWishlist(res)
+                            this.context.clearWishlistName()
 						})
 						
 				}
 			})
     }  
-    updateWishlistName = (e) => {
-        this.setState({wishlist_name: e.target.value})
-    }
-
 
     render() {
         const { error } = this.state
@@ -55,8 +50,8 @@ export default class WishlistForm extends Component {
                     </div>
                     <label htmlFor='WishlistForm_wishlist_name'>Wishlist Name: </label>
                     <input type='text' id='WishlistForm_wishlist_name' name='wishlist_name' 
-                    onChange={this.updateWishlistName}
-                    value={this.state.wishlist_name}/>
+                    onChange={e => this.context.setWishlistName(e.target.value)}
+                    value={this.context.wishlist_name}/>
                     <button type='submit'>Create Wishlist</button>
                 </form>
             </Section>

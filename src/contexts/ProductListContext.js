@@ -1,30 +1,38 @@
 import React, { Component } from 'react'
 
 const ProductListContext = React.createContext({
-    productList: [],
-    user: {},
-    wishlists: [],
-    wishlistProducts: [],
-    userId: null,
-    error: null,
-    setError: () => {},
-    clearError: () => {},
-    setProductList: () => {},
-    clearProductList: () => {},
-    clearProduct: () => {},
-    setWishlists: () => {},
-    clearWishlist: () => {},
-    setWishlistProducts: () => {},
-    clearWishlistProducts: () => {},
-    addWishlist: () => {},
-    addProductToWishlist: () => {},
-    searchTerm: '',
-    searchResults: null,
-    types: [],
-    type: '',
-    wishlistId: '',
+	productList: [],
+	user: {},
+	wishlists: [],
+	wishlistProducts: [],
+	userId: null,
+	error: null,
+	setError: () => {},
+	clearError: () => {},
+	setProductList: () => {},
+	clearProductList: () => {},
+	clearProduct: () => {},
+	setWishlists: () => {},
+	clearWishlist: () => {},
+	setWishlistProducts: () => {},
+	clearWishlistProducts: () => {},
+	addWishlist: () => {},
+	addProductToWishlist: () => {},
+	searchTerm: "",
+	searchResults: null,
+	types: [],
+	type: "",
+	wishlistId: "",
+	wishlist_name: "",
+	setSearchResults: () => {},
+	setTypes: () => {},
+	setType: () => {},
+	clearWishlistName: () => {},
+	setWishlistName: () => {},
+    setWishlistId: () => {},
+    setSearchTerm: () => {},
 
-})
+});
 export default ProductListContext
 
 export class ProductListProvider extends Component {
@@ -40,13 +48,23 @@ export class ProductListProvider extends Component {
         types: [],
         type: '',
         wishlistId: '',
+        wishlist_name: ''
     };
     setWishlistId = wishlist => {
         this.setState({
             wishlistId: wishlist
         })
     }
-
+    setWishlistName = wishlistName => {
+        this.setState({
+            wishlist_name: wishlistName
+        })
+    }
+    clearWishlistName = wishlistName => {
+        this.setState({
+            wishlist_name: ''
+        })
+    }
     setType = type => {
 		this.setState({
 			type: type
@@ -139,7 +157,10 @@ export class ProductListProvider extends Component {
             setType: this.setType,
             setTypes: this.setTypes,
             wishlistId: this.state.wishlistId,
-            setWishlistId: this.setWishlistId
+            setWishlistId: this.setWishlistId,
+            wishlist_name: this.state.wishlist_name,
+            setWishlistName: this.setWishlistName,
+            clearWishlistName: this.clearWishlistName
 		};
 
         return(
