@@ -31,7 +31,7 @@ const ProductListContext = React.createContext({
 	setWishlistName: () => {},
     setWishlistId: () => {},
     setSearchTerm: () => {},
-
+    product: {}
 });
 export default ProductListContext
 
@@ -48,7 +48,8 @@ export class ProductListProvider extends Component {
         types: [],
         type: '',
         wishlistId: '',
-        wishlist_name: ''
+        wishlist_name: '',
+        product: {}
     };
     setWishlistId = wishlist => {
         this.setState({
@@ -60,6 +61,7 @@ export class ProductListProvider extends Component {
             wishlist_name: wishlistName
         })
     }
+    
     clearWishlistName = () => {
         this.setState({
             wishlist_name: ''
@@ -114,10 +116,14 @@ export class ProductListProvider extends Component {
         this.setState({ user : user})
     }
     setProduct = product => {
-        this.setState(product)
+        this.setState({
+            product: product
+        })
     }
     clearProduct = product => {
-        this.setState(product)
+        this.setState({
+            product
+        })
     }
     setError = error => {
         this.setState({ error })
@@ -160,7 +166,8 @@ export class ProductListProvider extends Component {
             setWishlistId: this.setWishlistId,
             wishlist_name: this.state.wishlist_name,
             setWishlistName: this.setWishlistName,
-            clearWishlistName: this.clearWishlistName
+            clearWishlistName: this.clearWishlistName,
+            product: this.state.product
 		};
 
         return(

@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import './ProductPage.css'
 import TokenService from '../../services/token-service'
 import WishlistService from '../../services/wishlist-api-service'
+import ProductApiService from '../../services/product-api-service'
 export default class ProductPage extends Component {
     static defaultProps = {
         match: { params: {} }
@@ -25,10 +26,15 @@ export default class ProductPage extends Component {
     }
 
     componentDidMount() {
-        WishlistService.getWishlist()
-			.then(this.context.setWishlists)
-            .catch(this.context.setError);
+        ProductApiService.getProducts()
+            .then(this.context.setProductList)
+            .catch(this.context.setError)
         
+        if(TokenService.hasAuthToken()){
+            WishlistService.getWishlist()
+				.then(this.context.setWishlists)
+				.catch(this.context.setError)
+        } 
     }
     
     
@@ -84,8 +90,8 @@ export default class ProductPage extends Component {
 		);
     }
     renderWishlistProduct() {
-        
-            const {
+        //todo see if this is needed
+        const {
 			productList = []
         } = this.context
         const { productId } = this.props.match.params
@@ -125,7 +131,7 @@ export default class ProductPage extends Component {
 			productList = []
         } = this.context
         const { productId } = this.props.match.params
-        const product = findProduct(productList, productId) || { content: ''}
+        const product = findProduct(productList, productId) || { content: ''}        
         return (<>
             <div className='ProductPage__title'>
             <CircleButton tag={Link} to='/products' type='button' className='ProductPage__back-button'>

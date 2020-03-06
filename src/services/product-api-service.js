@@ -24,9 +24,9 @@ const ProductApiService = {
 		});
 	},	
     getProduct(productId) {
-        return fetch(`${config.API_ENDPOINT}/product/${productId}`, {
+        return fetch(`${config.API_ENDPOINT}/products/${productId}`, {
 			headers: {
-				authorization: `bearer ${TokenService.getAuthToken()}`
+				
 			}
 		}).then(res => {
 			if (!res.ok) {
