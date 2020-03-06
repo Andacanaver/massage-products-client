@@ -19,6 +19,11 @@ const ProductListContext = React.createContext({
     addWishlist: () => {},
     addProductToWishlist: () => {},
     searchTerm: '',
+    searchResults: null,
+    types: [],
+    type: '',
+    wishlistId: '',
+
 })
 export default ProductListContext
 
@@ -30,9 +35,33 @@ export class ProductListProvider extends Component {
         wishlists: [],
         userId: null,
         wishlistProducts: [],
-        searchTerm: ''
+        searchTerm: '',
+        searchResults: null,
+        types: [],
+        type: '',
+        wishlistId: '',
     };
+    setWishlistId = wishlist => {
+        this.setState({
+            wishlistId: wishlist
+        })
+    }
 
+    setType = type => {
+		this.setState({
+			type: type
+		});
+	};
+    setTypes = types => {
+        this.setState({
+            types: types
+        })
+    }
+	setSearchResults = results => {
+		this.setState({
+			searchResults: results
+		});
+	};
     setProductList = productList => {
         //todo why does this one need the curly brackets?
         this.setState({ productList })
@@ -102,7 +131,15 @@ export class ProductListProvider extends Component {
 			addWishlist: this.addWishlist,
 			addProductToWishlist: this.addProductToWishlist,
 			searchTerm: this.state.searchTerm,
-			setSearchTerm: this.setSearchTerm,
+            setSearchTerm: this.setSearchTerm,
+            searchResults: this.state.searchResults,
+            types: this.state.types,
+            type: this.state.type,
+            setSearchResults: this.setSearchResults,
+            setType: this.setType,
+            setTypes: this.setTypes,
+            wishlistId: this.state.wishlistId,
+            setWishlistId: this.setWishlistId
 		};
 
         return(
