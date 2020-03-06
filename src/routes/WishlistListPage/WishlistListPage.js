@@ -5,6 +5,7 @@ import ProductListContext from '../../contexts/ProductListContext'
 import { Link } from 'react-router-dom'
 import WishlistItem from '../../components/WishlistItem/WishlistItem'
 import WishlistForm from '../../components/WishlistForm/WishlistForm'
+import TokenService from '../../services/token-service'
 
 export default class WishlistPage extends Component {
     static contextType = ProductListContext
@@ -32,16 +33,33 @@ export default class WishlistPage extends Component {
             </>
         )
     }
+
+    renderLogin() {
+        return(
+            <div>
+                <br/>
+                <Link to='/login'>Please Login</Link>
+            </div>
+        )
+    }
     
 
     render() {
         const { error } = this.context
+        let content
+        if (error) {
+            content = (error.error === 'There was an error please try again')
+                ? <p className='red'>There was an error, try again</p>
+                : <p className='red'>There was an error</p>
+        } else {
+            content = (TokenService.hasAuthToken()
+                ? this.renderWishlist()
+                : this.renderLogin()
+            )
+        }
         return (
             <Section className='WishlistPage'>
-                {error
-                    ? <p className='red'>There was an error, try again</p>
-                    : <div>{this.renderWishlist()}</div>
-                }
+                {content}
             </Section>
         )
     }
