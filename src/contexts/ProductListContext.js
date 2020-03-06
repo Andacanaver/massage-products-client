@@ -17,7 +17,8 @@ const ProductListContext = React.createContext({
     setWishlistProducts: () => {},
     clearWishlistProducts: () => {},
     addWishlist: () => {},
-    addProductToWishlist: () => {}
+    addProductToWishlist: () => {},
+    searchTerm: '',
 })
 export default ProductListContext
 
@@ -28,7 +29,8 @@ export class ProductListProvider extends Component {
         error: null,
         wishlists: [],
         userId: null,
-        wishlistProducts: []
+        wishlistProducts: [],
+        searchTerm: ''
     };
 
     setProductList = productList => {
@@ -37,6 +39,11 @@ export class ProductListProvider extends Component {
     }
     clearProductList = productList => {
         this.setState({ productList })
+    }
+    setSearchTerm = term => {
+        this.setState({
+            searchTerm: term
+        })
     }
     setWishlists = wishlists => {
         this.setState({ wishlists })
@@ -75,27 +82,28 @@ export class ProductListProvider extends Component {
 
     render() {
         const value = {
-            productList: this.state.productList,
-            user: this.state.user,
-            userId: this.state.userId,
-            wishlists: this.state.wishlists,
-            wishlistProducts: this.state.wishlistProducts,
-            error: this.state.error,
-            setError: this.setError,
-            clearError: this.clearError,
-            setProductList: this.setProductList,
-            clearProduct: this.clearProduct,
-            setProduct: this.setProduct,
-            clearProductList: this.clearProductList,
-            setUser: this.setUser,
-            setWishlists: this.setWishlists,
-            clearWishlist: this.clearWishlist,
-            setWishlistProducts: this.setWishlistProducts,
-            clearWishlistProducts: this.clearWishlistProducts,
-            addWishlist: this.addWishlist,
-            addProductToWishlist: this.addProductToWishlist
-
-        }
+			productList: this.state.productList,
+			user: this.state.user,
+			userId: this.state.userId,
+			wishlists: this.state.wishlists,
+			wishlistProducts: this.state.wishlistProducts,
+			error: this.state.error,
+			setError: this.setError,
+			clearError: this.clearError,
+			setProductList: this.setProductList,
+			clearProduct: this.clearProduct,
+			setProduct: this.setProduct,
+			clearProductList: this.clearProductList,
+			setUser: this.setUser,
+			setWishlists: this.setWishlists,
+			clearWishlist: this.clearWishlist,
+			setWishlistProducts: this.setWishlistProducts,
+			clearWishlistProducts: this.clearWishlistProducts,
+			addWishlist: this.addWishlist,
+			addProductToWishlist: this.addProductToWishlist,
+			searchTerm: this.state.searchTerm,
+			setSearchTerm: this.setSearchTerm,
+		};
 
         return(
             <ProductListContext.Provider value={value}>

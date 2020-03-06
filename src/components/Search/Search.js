@@ -3,14 +3,18 @@ import { Section } from '../../Utils/Utils'
 import './Search.css'
 import TypeSearch from '../TypeSearch/TypeSearch'
 import config from '../../config'
+import ProductListContext from '../../contexts/ProductListContext'
 
 export default class Search extends Component {
+    static contextType = ProductListContext
     constructor() {
         super();
         this.state = {
+            //todo can get rid of this
             searchTerm: ""
 		};
     }
+    //todo can get rid of this
     setSearchTerm = term => {
         this.setState({
             searchTerm: term,
@@ -48,7 +52,7 @@ export default class Search extends Component {
         let baseUrl = `${config.API_ENDPOINT}/products`
         
         if(this.state.searchTerm) {
-            params.push(`name=${this.state.searchTerm}`);
+            params.push(`name=${this.context.searchTerm}`);
         }
         if(this.props.type){
             params.push(`type=${this.props.type}`);
@@ -89,7 +93,7 @@ export default class Search extends Component {
 					    {error && <p className="red">{error}</p>}
                     </div>
 					<label htmlFor="search">Search: </label>
-					<input type="text" id="search" name="search" onChange={e => this.setSearchTerm(e.target.value)}/>
+					<input type="text" id="search" name="search" onChange={e => this.context.setSearchTerm(e.target.value)}/>
 					<button type="submit">Search</button>
                     <br/>
                     {this.renderTypeOptions()}
