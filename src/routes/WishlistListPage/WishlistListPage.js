@@ -24,14 +24,24 @@ export default class WishlistPage extends Component {
 
     renderWishlist() {
         const wishlists = this.context.wishlists
-        return ( 
-            <>
-                {wishlists.map(wishlist => 
-                    <WishlistItem key={wishlist.id} wishlist={wishlist}/>
-                )}
-                <WishlistForm />
-            </>
-        )
+        if (wishlists.length > 0) {
+            return (
+				<>
+					{wishlists.map(wishlist => (
+						<WishlistItem key={wishlist.id} wishlist={wishlist} />
+					))}
+					<WishlistForm />
+				</>
+			);
+        } else {
+            return (
+                <div>
+                    <p>You don't have any wishlists at the moment</p>
+                    <br/>
+                    <WishlistForm />
+                </div>
+            )
+        }
     }
 
     renderLogin() {

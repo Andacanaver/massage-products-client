@@ -51,6 +51,7 @@ export default class WishlistForm extends Component {
                     <label htmlFor='WishlistForm_wishlist_name'>Wishlist Name: </label>
                     <input type='text' id='WishlistForm_wishlist_name' name='wishlist_name' 
                     onChange={e => this.context.setWishlistName(e.target.value)}
+                    value={this.context.wishlist_name}
                     />
                     <button type='submit'>Create Wishlist</button>
                 </form>

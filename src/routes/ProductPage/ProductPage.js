@@ -36,7 +36,9 @@ export default class ProductPage extends Component {
 				.catch(this.context.setError)
         } 
     }
-    
+    componentWillUnmount() {
+        this.context.clearWishlistId()
+    }
     
     handleSubmit = e => {
         e.preventDefault()
@@ -71,15 +73,16 @@ export default class ProductPage extends Component {
 				</div>
 				<label htmlFor="wishlist-options">
                     Add to Wishlist: 
-					<select onChange={this.context.setWishlistId} id="wishlists">
+					<select onChange={e => this.context.setWishlistId(e.target.value)} id="wishlists">
 						<option name="none" value="">
 							None
 						</option>
-						{wishlists.map(wishlist => (
+                        {wishlists.map(wishlist => (
 							<option
                                 key={wishlist.id}
 								name={wishlist.wishlist_name}
-								value={wishlist.id}>
+								value={wishlist.id}
+                                >
 								{wishlist.wishlist_name}
 							</option>
 						))}

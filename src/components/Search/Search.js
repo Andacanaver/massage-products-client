@@ -10,6 +10,11 @@ export default class Search extends Component {
     state = {
         error: null
     }
+
+    componentWillUnmount() {
+        this.context.clearSearchTerm()
+        this.context.clearSearchResults()
+    }
     renderTypeOptions() {
         const types = this.props.types
         return (
@@ -64,8 +69,8 @@ export default class Search extends Component {
             return res.json();
         })
         .then(data => {
-            this.props.saveSearchResults(data);
-            
+            this.context.clearSearchTerm()
+            this.props.saveSearchResults(data)
         })
         .catch(error => {
             console.error(error)
@@ -82,7 +87,9 @@ export default class Search extends Component {
 					    {error && <p className="red">{error}</p>}
                     </div>
 					<label htmlFor="search">Search: </label>
-					<input type="text" id="search" name="search" onChange={e => this.context.setSearchTerm(e.target.value)}/>
+					<input type="text" id="search" name="search" onChange={e => this.context.setSearchTerm(e.target.value)}
+                    value={this.context.searchTerm}
+                    />
 					<button type="submit">Search</button>
                     <br/>
                     {this.renderTypeOptions()}

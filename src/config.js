@@ -1,4 +1,4 @@
 export default {
-	API_ENDPOINT: "https://infinite-inlet-18610.herokuapp.com/api",
+	API_ENDPOINT: "http://localhost:8000/api",
 	TOKEN_KEY: process.env.API_KEY
 };

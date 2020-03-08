@@ -24,13 +24,16 @@ const ProductListContext = React.createContext({
 	type: "",
 	wishlistId: "",
 	wishlist_name: "",
-	setSearchResults: () => {},
+    setSearchResults: () => {},
+    clearSearchResults: () => {},
 	setTypes: () => {},
 	setType: () => {},
 	clearWishlistName: () => {},
 	setWishlistName: () => {},
     setWishlistId: () => {},
+    clearWishlistId: () => {},
     setSearchTerm: () => {},
+    clearSearchTerm: () => {},
     product: {}
 });
 export default ProductListContext
@@ -54,6 +57,11 @@ export class ProductListProvider extends Component {
     setWishlistId = wishlist => {
         this.setState({
             wishlistId: wishlist
+        })
+    }
+    clearWishlistId = () => {
+        this.setState({
+            wishlistId: ''
         })
     }
     setWishlistName = wishlistName => {
@@ -81,7 +89,12 @@ export class ProductListProvider extends Component {
 		this.setState({
 			searchResults: results
 		});
-	};
+    };
+    clearSearchResults = () => {
+        this.setState({
+            searchResults: null
+        })
+    }
     setProductList = productList => {
         //todo why does this one need the curly brackets?
         this.setState({ productList })
@@ -92,6 +105,11 @@ export class ProductListProvider extends Component {
     setSearchTerm = term => {
         this.setState({
             searchTerm: term
+        })
+    }
+    clearSearchTerm = () => {
+        this.setState({
+            searchTerm: ''
         })
     }
     setWishlists = wishlists => {
@@ -135,6 +153,8 @@ export class ProductListProvider extends Component {
 
     render() {
         const value = {
+            clearSearchResults: this.clearSearchResults,
+            clearSearchTerm: this.clearSearchTerm,
 			productList: this.state.productList,
 			user: this.state.user,
 			userId: this.state.userId,
@@ -167,7 +187,8 @@ export class ProductListProvider extends Component {
             wishlist_name: this.state.wishlist_name,
             setWishlistName: this.setWishlistName,
             clearWishlistName: this.clearWishlistName,
-            product: this.state.product
+            product: this.state.product,
+            clearWishlistId: this.clearWishlistId
 		};
 
         return(
