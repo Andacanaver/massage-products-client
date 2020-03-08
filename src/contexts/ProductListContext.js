@@ -122,7 +122,7 @@ export class ProductListProvider extends Component {
         this.setState({ productList: [...this.state.productList, product] })
     }
     setWishlistProducts = wishlistProducts => {
-        this.setState({ wishlistProducts })
+        this.setState({ wishlistProducts });    
     }
     clearWishlistProducts = wishlistProducts => {
         this.setState({ wishlistProducts })

@@ -23,21 +23,12 @@ export default class WishlistPage extends Component {
     
     renderProduct() {
         const { wishlistProducts = [] } = this.context
-        console.log(wishlistProducts[0])
-		if (typeof wishlistProducts[0].product_id === 'undefined') {
-            return (
-                <div>
-                    <p>No Products</p>
-                </div>
-            )
-        } else {
-            return wishlistProducts.map(product => (
-				<ProductWishlistItem
-					key={product.product_id}
-					product={product}
-				/>
-			));
-        }
+        return wishlistProducts.map(product => (
+			<ProductWishlistItem
+				key={product.product_id}
+				product={product}
+            />
+		));
     }
 
     renderWishlistProduct() {
