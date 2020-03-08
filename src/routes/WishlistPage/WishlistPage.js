@@ -21,17 +21,16 @@ export default class WishlistPage extends Component {
             .then(this.context.setWishlistProducts)
     }
     
-    renderProduct() {
-        const { wishlistProducts = [] } = this.context
-        return wishlistProducts.map(product => (
+    renderProduct(products) {
+        return products.map(product => (
 			<ProductWishlistItem
 				key={product.product_id}
 				product={product}
-            />
-		));
+			/>
+		));        
     }
 
-    renderWishlistProduct() {
+    renderWishlistProduct(wishlistProducts) {
         const { wishlists = [] } = this.context
         const { wishlistId } = this.props.match.params
         
@@ -43,20 +42,24 @@ export default class WishlistPage extends Component {
                         <FontAwesomeIcon icon='chevron-left'/>
                     </CircleButton>
                     <h2>{wishlist.wishlist_name}</h2>
-                    {this.renderProduct()}
+                    {this.renderProduct(wishlistProducts)}
                 </div>
             </>
         )
     }
     render() {
-        const { error } = this.context
+        const { error, wishlistProducts = [] } = this.context
+        console.log(wishlistProducts)
         let content
         if(error) {
             content = (error.error === `Product not found`)
                 ? <p className='red'>Product not found</p>
                 : <p className='red'>There was an error</p>
         } else {
-            content = this.renderWishlistProduct()
+            content =
+				wishlistProducts.length > 0
+					? this.renderWishlistProduct(wishlistProducts)
+					: <p>No Products</p>
         }
         return (
             <Section className='WishlistPage'>

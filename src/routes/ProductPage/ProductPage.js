@@ -23,6 +23,7 @@ export default class ProductPage extends Component {
 
     componentWillUnmount() {
         this.context.clearProduct()
+        this.context.clearWishlistId();
     }
 
     componentDidMount() {
@@ -35,9 +36,6 @@ export default class ProductPage extends Component {
 				.then(this.context.setWishlists)
 				.catch(this.context.setError)
         } 
-    }
-    componentWillUnmount() {
-        this.context.clearWishlistId()
     }
     
     handleSubmit = e => {
