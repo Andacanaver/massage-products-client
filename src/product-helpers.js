@@ -1,8 +1,5 @@
 export const findProduct = (productList = [], productId) =>
-	productList.find(product => product.id == productId);
-
-export const findUser = (users = [], userId) => 
-	users.find(user => user.id == userId);
+	productList.find(product => product.id === parseInt(productId));
 
 export const findWishlist = (wishlists = [], wishlistId) => 
-	wishlists.find(wishlist => wishlist.id == wishlistId)
+	wishlists.find(wishlist => wishlist.id === wishlistId)
