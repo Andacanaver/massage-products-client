@@ -50,7 +50,6 @@ export default class WishlistPage extends Component {
     }
     render() {
         const { error, wishlistProducts = [] } = this.context
-        console.log(wishlistProducts)
         let content
         if(error) {
             content = (error.error === `Product not found`)
