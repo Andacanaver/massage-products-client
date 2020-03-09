@@ -1,70 +1,46 @@
-You can log into a demo account with the username: demo and password: TestPassword1!
+<h1>Massage Therapy Products</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the start of an app that could be used in a Massage Therapists' website. It has the ability to have many products and descriptions of them. Along with the ability for a user to register an account and login to save products for future use. In the future I would like to polish it up even more and add many more things to it.
 
-## Available Scripts
+<a href="https://project.moeswebservice.com" target="_blank">Live site</a>
+<br/>
+<a href="https://github.com/Andacanaver/massage-products-api" target="_blank">Server Repo</a>
 
-In the project directory, you can run:
+Here are some screenshots of the project
 
-### `npm start`
+<h3>Landing page</h3>
+<img width="1440" alt="Screen Shot 2020-03-09 at 2 22 35 PM" src="https://user-images.githubusercontent.com/48130732/76249975-5b5d5c80-6212-11ea-8573-3b4873ed2a55.png">
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h3>Registration Page</h3>
+<img width="1440" alt="Screen Shot 2020-03-09 at 2 22 53 PM" src="https://user-images.githubusercontent.com/48130732/76249982-5dbfb680-6212-11ea-8767-8abd53a82e1b.png">
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h3>Login Page</h3>
+<img width="1440" alt="Screen Shot 2020-03-09 at 2 23 06 PM" src="https://user-images.githubusercontent.com/48130732/76249988-5ef0e380-6212-11ea-90a7-2320e6cc4793.png">
 
-### `npm test`
+<h3>Product List Page</h3>
+<img width="1440" alt="Screen Shot 2020-03-09 at 2 23 16 PM" src="https://user-images.githubusercontent.com/48130732/76249989-60221080-6212-11ea-9b1b-429ef3cfbbf5.png">
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3>Profile Page</h3>
+<img width="1440" alt="Screen Shot 2020-03-09 at 2 23 49 PM" src="https://user-images.githubusercontent.com/48130732/76250001-66b08800-6212-11ea-9f30-fa1dda312a9d.png">
 
-### `npm run build`
+<h3>List of Wishlists</h3>
+<img width="1440" alt="Screen Shot 2020-03-09 at 2 24 00 PM" src="https://user-images.githubusercontent.com/48130732/76250004-67e1b500-6212-11ea-9ca6-e462f0402553.png">
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h3>Products in wishlist</h3>
+<img width="1440" alt="Screen Shot 2020-03-09 at 2 24 09 PM" src="https://user-images.githubusercontent.com/48130732/76250007-6912e200-6212-11ea-9d37-33762ae49c48.png">
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<h2>API Documentation</h2>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+to start the server do - 'npm start' or to have it restart after each change do 'npm run dev'
+to test the server do - 'npm test'
+to create the tables do - 'npm run migrate'
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<h2>Technology Used</h2>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>React.js</li>
+    <li>Node.js</li>
+    <li>Express</li>
+  </ul>
+  
