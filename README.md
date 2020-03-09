@@ -2,9 +2,9 @@
 
 This is the start of an app that could be used in a Massage Therapists' website. It has the ability to have many products and descriptions of them. Along with the ability for a user to register an account and login to save products for future use. In the future I would like to polish it up even more and add many more things to it.
 
-<a href="https://project.moeswebservice.com" target=_blank>Live site</a>
+<a href="https://project.moeswebservice.com" target="_blank">Live site</a>
 <br/>
-<a href="https://github.com/Andacanaver/massage-products-api" target=_blank>Server Repo</a>
+<a href="https://github.com/Andacanaver/massage-products-api" target="_blank">Server Repo</a>
 
 Here are some screenshots of the project
 
