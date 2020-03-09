@@ -28,7 +28,7 @@ export default class ProfilePage extends Component {
 				<h3>Full Name: {user.full_name}</h3>
 				<p>Email Address: {user.email_address}</p>
                 <p>Username: {user.username}</p>
-                {/*<button type="button">Edit Profile</button>*/}
+                {/*eventually add an edit profile function*/}
                 <Link to={'/wishlists'}>Wishlists</Link>
 			</div>
 		);
