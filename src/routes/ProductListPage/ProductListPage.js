@@ -51,14 +51,16 @@ export default class ProductListPage extends Component {
 				{error ? (
 					<p className="red">There was an error, try again</p>
 				) : (
-					<div>
+					<div className="ProductListPage__content">
 						<Search
 							type={this.context.type}
 							setType={this.context.setType}
 							types={this.context.types}
 							saveSearchResults={this.context.setSearchResults}
 						/>{" "}
-						{this.renderProducts()}
+						<div className="ProductListPage__items">
+							{this.renderProducts()}
+						</div>
 					</div>
 				)}
 			</Section>

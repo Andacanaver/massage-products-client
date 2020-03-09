@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import WishlistItem from '../../components/WishlistItem/WishlistItem'
 import WishlistForm from '../../components/WishlistForm/WishlistForm'
 import TokenService from '../../services/token-service'
+import '../../components/WishlistForm/WishlistForm.css'
 
 export default class WishlistPage extends Component {
     static contextType = ProductListContext

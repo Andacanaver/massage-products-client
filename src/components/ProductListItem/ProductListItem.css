@@ -5,3 +5,51 @@
 .ProductListPage img {
     width: 20%;
 }
+
+
+@media screen and (min-width: 768px) {
+    .ProductListPage__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+    .ProductListPage__items {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center   
+    }
+    .ProductListItem__item {
+        width: 45%;
+        border: 5px;
+        border-color: white;
+        border: 3px solid white;
+        margin: 5px;
+        padding: 5px;
+        height: 12em;
+    }
+    
+    
+}
+@media screen and (min-width: 1024px) {
+    
+    .ProductListPage__items {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .ProductListItem__item {
+        width: 20%;
+        border: 5px;
+        border-color: white;
+        border: 3px solid white;
+        margin: 5px;
+        padding: 5px;
+        height: 250px;
+    }
+    .ProductListPage img {
+        width: 40%;
+    }
+}

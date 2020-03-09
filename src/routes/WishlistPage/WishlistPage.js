@@ -7,8 +7,7 @@ import { findWishlist } from '../../product-helpers'
 import { Link } from 'react-router-dom'
 import WishlistService from '../../services/wishlist-api-service'
 import ProductWishlistItem from '../../components/ProductWishlistItem/ProductWishlistItem'
-
-
+import './WishlistPage.css'
 export default class WishlistPage extends Component {
     static contextType = ProductListContext
     static defaultProps = {
@@ -42,7 +41,9 @@ export default class WishlistPage extends Component {
                         <FontAwesomeIcon icon='chevron-left'/>
                     </CircleButton>
                     <h2>{wishlist.wishlist_name}</h2>
-                    {this.renderProduct(wishlistProducts)}
+                    <div className='WishlistPage__items'>
+                        {this.renderProduct(wishlistProducts)}
+                    </div>
                 </div>
             </>
         )
