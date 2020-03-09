@@ -82,6 +82,7 @@ export default class Search extends Component {
         return (
             <>
 			<Section className="SearchSection">
+                
 				<form className="search__form" onSubmit={e => this.handleSubmit(e)}>
                     <div role="alert">
 					    {error && <p className="red">{error}</p>}
