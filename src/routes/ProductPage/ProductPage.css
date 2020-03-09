@@ -9,3 +9,22 @@
     flex-direction: column;
     padding-top: 15px;
 }
+.ProductPage img {
+    width: 50%;
+}
+.ProductPage form select{
+    margin: 0 5px;
+    background-color: white;
+}
+.ProductPage form button {
+    background-color: white;
+}
+#wishlist-link {
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+    .ProductPage img {
+        width: 25%;
+    }
+}

@@ -11,7 +11,7 @@ import WishlistService from '../../services/wishlist-api-service'
 import ProductApiService from '../../services/product-api-service'
 export default class ProductPage extends Component {
     static defaultProps = {
-        match: { params: {} }
+        match: { params: {} },
     }
 
     static contextType = ProductListContext
@@ -100,7 +100,7 @@ export default class ProductPage extends Component {
         return (
 			<>
 				<div className="ProductPage__title">
-					<Link to="/wishlists">Wishlists</Link>
+					<Link to="/wishlists" id='wishlist-link'>Wishlists</Link>
 					<CircleButton
 						tag={Link}
 						to="/products"

@@ -8,7 +8,7 @@ export default class ProductListItem extends Component {
     render() {
         const { product } = this.props
         return (
-			<>
+			<div className='ProductListItem__item'>
 				<Link to={`/product/${product.id}`} className="ProductListItem">
 					<header className="ProductListItem__header">
 						<h2 className="ProductListItem__heading">
@@ -26,7 +26,7 @@ export default class ProductListItem extends Component {
 					{product.product_description}
 				</main>
 				
-			</>
+			</div>
 		);
     }
 }

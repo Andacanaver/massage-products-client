@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Hyph } from "../../Utils/Utils";
-
-export default class ProductListItem extends Component {
+import './ProductWishlistItem.css'
+export default class ProductWishlistListItem extends Component {
 	render() {
 		const { product } = this.props;
 		return (
-			<>
+			<div className="ProductWishlistListItem__item">
 				<Link to={`/product/${product.product_id}`} className="ProductListItem">
 					<header className="ProductListItem__header">
 						<h2 className="ProductListItem__heading">
@@ -27,7 +27,7 @@ export default class ProductListItem extends Component {
 					{product.product_description}
 				</main>
 				<footer className="ProductListItem__footer"></footer>
-			</>
+			</div>
 		);
 	}
 }

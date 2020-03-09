@@ -1,0 +1,9 @@
+.WishlistPage img {
+    width: 50%;
+}
+@media screen and (min-width: 1024px) {
+    
+    .WishlistPage img {
+        width: 30%;
+    }
+}
