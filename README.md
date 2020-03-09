@@ -36,9 +36,11 @@ to test the server do - 'npm test'
 to create the tables do - 'npm run migrate'
 
 <h2>Technology Used</h2>
-  - HTML
-  - CSS
-  - React.js
-  - Node.js
-  - Express
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>React.js</li>
+    <li>Node.js</li>
+    <li>Express</li>
+  </ul>
   
