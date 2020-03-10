@@ -4,7 +4,7 @@ import './Search.css'
 import TypeSearch from '../TypeSearch/TypeSearch'
 import config from '../../config'
 import ProductListContext from '../../contexts/ProductListContext'
-
+import uuid from 'uuid'
 export default class Search extends Component {
     static contextType = ProductListContext
     state = {
@@ -30,7 +30,7 @@ export default class Search extends Component {
 				<label htmlFor="type-none">None</label>
 				{types.map(type => (
 					<TypeSearch
-						key={type.product_type}
+						key={uuid()}
 						type={type.product_type}
 						setType={this.props.setType}
 					/>

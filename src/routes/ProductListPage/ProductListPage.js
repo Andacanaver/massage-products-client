@@ -45,8 +45,6 @@ export default class ProductListPage extends Component {
 		}
 	}
 
-	
-
 	render() {
 		const { error } = this.context;
 		return (
