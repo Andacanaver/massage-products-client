@@ -12,8 +12,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-flow: row wrap;
+        flex-flow: column wrap;
     }
+    
     .ProductListPage__items {
         display: flex;
         flex-flow: row wrap;

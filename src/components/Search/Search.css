@@ -6,13 +6,12 @@
 .SearchSection Form input {
     width: 30%;
     margin: 0 10px;
-    height: 24px;
-    border: 3px;
+    height: 1.5em;
 }
 .SearchSection form button{
     width: 20%;
-    height: 24px;
-    border: 3px;
+    height: 2em;
+    background-color: white;
 }
 .SearchSection Form .type_options {
     display: flex;

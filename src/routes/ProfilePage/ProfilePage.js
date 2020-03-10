@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Section } from '../../Utils/Utils'
-//import ProfileArea from '../../components/ProfileArea'
 import UserService from '../../services/user-api-service'
 import ProductListContext from '../../contexts/ProductListContext'
 import { Link } from 'react-router-dom'
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary'
 
 export default class ProfilePage extends Component {
     static contextType = ProductListContext
@@ -37,11 +37,12 @@ export default class ProfilePage extends Component {
     render() {
         
         return (
-            <Section className='ProfilePage'>
-                {this.renderProfile()}
-
-            </Section>
-        )
+			<ErrorBoundary>
+				<Section className="ProfilePage">
+					{this.renderProfile()}
+				</Section>
+			</ErrorBoundary>
+		);
     }
 }
 

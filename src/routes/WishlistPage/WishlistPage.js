@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import WishlistService from '../../services/wishlist-api-service'
 import ProductWishlistItem from '../../components/ProductWishlistItem/ProductWishlistItem'
 import './WishlistPage.css'
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 export default class WishlistPage extends Component {
     static contextType = ProductListContext
     static defaultProps = {
@@ -62,9 +63,11 @@ export default class WishlistPage extends Component {
 					: <p>No Products</p>
         }
         return (
-            <Section className='WishlistPage'>
-                {content}
-            </Section>
-        )
+			<ErrorBoundary>
+				<Section className="WishlistPage">
+                    {content}
+                </Section>
+			</ErrorBoundary>
+		);
     }
 }

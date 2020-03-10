@@ -7,6 +7,7 @@ import WishlistItem from '../../components/WishlistItem/WishlistItem'
 import WishlistForm from '../../components/WishlistForm/WishlistForm'
 import TokenService from '../../services/token-service'
 import '../../components/WishlistForm/WishlistForm.css'
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 
 export default class WishlistPage extends Component {
     static contextType = ProductListContext
@@ -69,9 +70,11 @@ export default class WishlistPage extends Component {
             )
         }
         return (
-            <Section className='WishlistPage'>
-                {content}
-            </Section>
-        )
+			<ErrorBoundary>
+				<Section className="WishlistPage">
+                    {content}
+                </Section>
+			</ErrorBoundary>
+		);
     }
 }
