@@ -9,6 +9,8 @@ import './ProductPage.css'
 import TokenService from '../../services/token-service'
 import WishlistService from '../../services/wishlist-api-service'
 import ProductApiService from '../../services/product-api-service'
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
+
 export default class ProductPage extends Component {
     static defaultProps = {
         match: { params: {} },
@@ -163,9 +165,11 @@ export default class ProductPage extends Component {
             )
         }
         return (
-			<Section className="ProductPage">
-				{content}
-			</Section>
+			<ErrorBoundary>
+				<Section className="ProductPage">
+                    {content}
+                </Section>
+			</ErrorBoundary>
 		);
     }
 }

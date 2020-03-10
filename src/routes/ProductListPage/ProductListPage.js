@@ -4,7 +4,7 @@ import ProductApiService from "../../services/product-api-service";
 import { Section } from "../../Utils/Utils";
 import ProductListItem from "../../components/ProductListItem/ProductListItem";
 import Search from "../../components/Search/Search";
-
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary'
 export default class ProductListPage extends Component {
     static contextType = ProductListContext;
     
@@ -34,9 +34,12 @@ export default class ProductListPage extends Component {
 				));
 			} else {
 				return (
-					<div role="alert">
+					<>
+					<br/>
+					<div role="alert" className="searchError">
 						<p className="red">No Products found</p>
 					</div>
+					</>
 				);
 			}
 		}
@@ -47,23 +50,27 @@ export default class ProductListPage extends Component {
 	render() {
 		const { error } = this.context;
 		return (
-			<Section list className="ProductListPage">
-				{error ? (
-					<p className="red">There was an error, try again</p>
-				) : (
-					<div className="ProductListPage__content">
-						<Search
-							type={this.context.type}
-							setType={this.context.setType}
-							types={this.context.types}
-							saveSearchResults={this.context.setSearchResults}
-						/>{" "}
-						<div className="ProductListPage__items">
-							{this.renderProducts()}
+			<ErrorBoundary>
+				<Section list className="ProductListPage">
+					{error ? (
+						<p className="red">There was an error, try again</p>
+					) : (
+						<div className="ProductListPage__content">
+							<Search
+								type={this.context.type}
+								setType={this.context.setType}
+								types={this.context.types}
+								saveSearchResults={
+									this.context.setSearchResults
+								}
+							/>{" "}
+							<div className="ProductListPage__items">
+								{this.renderProducts()}
+							</div>
 						</div>
-					</div>
-				)}
-			</Section>
+					)}
+				</Section>
+			</ErrorBoundary>
 		);
 	}
 }
