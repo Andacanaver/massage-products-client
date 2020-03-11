@@ -25,7 +25,7 @@ export default class WishlistPage extends Component {
         return products.map(product => (
 			<ProductWishlistItem
 				key={product.product_id}
-				product={product}
+                product={product}
 			/>
 		));        
     }

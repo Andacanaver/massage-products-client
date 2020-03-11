@@ -30,12 +30,11 @@ export default class Search extends Component {
 				<label htmlFor="type-none">None</label>
 				{types.map(type => (
 					<TypeSearch
-						key={uuid()}
 						type={type.product_type}
 						setType={this.props.setType}
+						
 					/>
 				))}
-                
 			</div>
 		);
     }
