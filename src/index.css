@@ -28,3 +28,8 @@ a:hover {
 strong {
   color: #F7CA18;
 }
+@media screen and (min-width: 2100px) {
+  body {
+    font-size: 2.5em;
+  }
+}
