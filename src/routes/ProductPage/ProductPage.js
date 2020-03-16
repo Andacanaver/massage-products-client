@@ -15,7 +15,7 @@ export default class ProductPage extends Component {
     static defaultProps = {
         match: { params: {} },
         history: {
-            goBack: () => {}
+            push: () => {}
         }
     }
 
@@ -32,9 +32,7 @@ export default class ProductPage extends Component {
     }
 
     componentDidMount() {
-        ProductApiService.getProducts()
-            .then(this.context.setProductList)
-            .catch(this.context.setError)
+        
         
         if(TokenService.hasAuthToken()){
             WishlistService.getWishlist()
