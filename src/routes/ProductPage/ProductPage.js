@@ -14,6 +14,9 @@ import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 export default class ProductPage extends Component {
     static defaultProps = {
         match: { params: {} },
+        history: {
+            goBack: () => {}
+        }
     }
 
     static contextType = ProductListContext
@@ -39,7 +42,12 @@ export default class ProductPage extends Component {
 				.catch(this.context.setError)
         } 
     }
-    
+    handleDelete = e => {
+        e.preventDefault()
+        const { productId } = this.props.match.params
+        ProductApiService.deleteProduct(productId, this.context.deleteProduct)
+            .then(this.props.history.push('/products'))
+    }
     handleSubmit = e => {
         e.preventDefault()
         const { productId } = this.props.match.params
@@ -60,6 +68,17 @@ export default class ProductPage extends Component {
                     })
                 }
             })
+    }
+    renderDelete = () => {
+        const { stateError } = this.state
+        return (
+			<form onSubmit={this.handleDelete} className="delete_product">
+				<div role="alert">
+					{stateError && <p className="red">{stateError}</p>}
+				</div>
+                <button type='submit'>Delete</button>
+			</form>
+		);
     }
     renderWishlists = () => {
         const { stateError } = this.state;
@@ -124,6 +143,7 @@ export default class ProductPage extends Component {
 					{product.product_description}
 				</p>
 				<div>{this.renderWishlists()}</div>
+                <div>{this.renderDelete()}</div>
 			</>
 		);
     }
@@ -145,6 +165,7 @@ export default class ProductPage extends Component {
             <p><img src={product.product_image} alt={`Product ${product.product_name}`}/></p>
             <p>{product.price}<Hyph />{product.product_description}</p>
             <Link to='/login'>Add to Wishlist</Link>
+            <div>{this.renderDelete()}</div>
         </>)
     }
 

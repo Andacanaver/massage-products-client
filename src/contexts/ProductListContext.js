@@ -34,7 +34,9 @@ const ProductListContext = React.createContext({
     clearWishlistId: () => {},
     setSearchTerm: () => {},
     clearSearchTerm: () => {},
-    product: {}
+    product: {},
+    addProduct: () => {},
+    deleteProduct: () => {}
 });
 export default ProductListContext
 
@@ -118,6 +120,10 @@ export class ProductListProvider extends Component {
     addWishlist = wishlist => {
         this.setState({ wishlists: [...this.state.wishlists, wishlist] })
     }
+    addProduct = product => {
+        this.setState({ productList: [...this.state.productList, product]})
+    }
+    deleteProduct = () => {}
     addProductToWishlist = product => {
         this.setState({ productList: [...this.state.productList, product] })
     }
@@ -155,6 +161,8 @@ export class ProductListProvider extends Component {
 
     render() {
         const value = {
+            deleteProduct: this.deleteProduct,
+            addProduct: this.addProduct,
             clearSearchResults: this.clearSearchResults,
             clearSearchTerm: this.clearSearchTerm,
 			productList: this.state.productList,

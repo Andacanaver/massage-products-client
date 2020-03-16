@@ -1,0 +1,12 @@
+.ProductAddForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+.ProductAddForm label {
+    margin: 5px;
+}
+.ProductAddForm button {
+    margin-top: 10px;
+}

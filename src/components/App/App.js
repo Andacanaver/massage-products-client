@@ -11,6 +11,7 @@ import './App.css'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import WishlistListPage from '../../routes/WishlistListPage/WishlistListPage'
 import WishlistPage from '../../routes/WishlistPage/WishlistPage'
+import ProductAddPage from '../../routes/ProductAddPage/ProductAddPage'
 
 class App extends Component {
   state = { 
@@ -55,6 +56,7 @@ class App extends Component {
             <Route path={'/profile'} component={ProfilePage}/>
             <Route path={'/wishlists'} component={WishlistListPage}/>
             <Route path={'/wishlist/:wishlistId'} component={WishlistPage}/>
+            <Route path={'/addProduct'} component={ProductAddPage} />
             <Route component={NotFoundPage}/>
           </Switch>
         </main>

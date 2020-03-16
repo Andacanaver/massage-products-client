@@ -28,6 +28,8 @@ export default class Header extends Component {
 				<Link to={`/profile`}>Profile</Link>
 				<Hyph />
 				<Link to="/products">Products</Link>
+				<Hyph />
+				<Link to="/addProduct">Add Product</Link>
 			</div>
 		);
 	}
@@ -40,6 +42,8 @@ export default class Header extends Component {
 				<Link to="/login">Log in</Link>
 				<Hyph />
 				<Link to="/products">Products</Link>
+				<Hyph />
+				<Link to='/addProduct'>Add Product</Link>
 			</div>
 		);
 	}

@@ -26,7 +26,7 @@ export default class ProductWishlistListItem extends Component {
 					<Hyph />
 					{product.product_description}
 				</main>
-				<footer className="ProductListItem__footer"></footer>
+				
 			</div>
 		);
 	}
