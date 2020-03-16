@@ -15,7 +15,7 @@ export default class ProductPage extends Component {
     static defaultProps = {
         match: { params: {} },
         history: {
-            push: () => {}
+            goBack: () => {}
         }
     }
 
@@ -33,7 +33,6 @@ export default class ProductPage extends Component {
 
     componentDidMount() {
         
-        
         if(TokenService.hasAuthToken()){
             WishlistService.getWishlist()
 				.then(this.context.setWishlists)
@@ -43,7 +42,8 @@ export default class ProductPage extends Component {
     handleDelete = e => {
         e.preventDefault()
         const { productId } = this.props.match.params
-        ProductApiService.deleteProduct(productId, this.context.deleteProduct)
+        ProductApiService.deleteProduct(productId)
+            .then(ProductApiService.getProducts().then(this.context.setProductList))
             .then(this.props.history.push('/products'))
     }
     handleSubmit = e => {
