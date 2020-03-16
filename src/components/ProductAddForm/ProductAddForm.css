@@ -9,4 +9,20 @@
 }
 .ProductAddForm button {
     margin-top: 10px;
+    background-color: white;
+    color: black;
+}
+.ProductAddForm select {
+    background-color: white;
+    color: black;
+}
+
+@media screen and (min-width: 2100px) {
+    body {
+        font-size: 3em;
+    }
+    .ProductAddForm input, .ProductAddForm select, .ProductAddForm button {
+        width: 25%;
+        height: 2.5em;
+    }
 }
